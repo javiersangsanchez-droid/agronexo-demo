@@ -12,4 +12,5 @@ assert.ok(js.includes('calendarConnections')&&js.includes('Google Calendar')&&js
 assert.ok(js.includes('financeEntries')&&js.includes('expense-ledger')&&js.includes('openExpense'),'traceable finance ledger');
 assert.ok(js.includes('climateData')&&js.includes('alertsView')&&js.includes("place:'Montería'")&&js.includes("place:'Cereté'"),'climate centers for both farms');
 assert.ok(js.includes('Toda la agenda de AgroNexo se replica automáticamente'),'complete agenda synchronization scope');
+assert.ok(html.includes('sidebarBackdrop')&&js.includes('closeTransientMenus')&&js.includes("document.addEventListener('pointerdown'"),'click-away closure for drawers and dropdown menus');
 console.log('PASS: contenido, módulos, dos fincas, agente y persistencia presentes');
