@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#133a2b" />
+  <meta name="description" content="AgroNexo, demostración funcional para Finca La Libertad y VillaYolsa" />
+  <title>AgroNexo · Gestión inteligente de fincas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="demo-ribbon">● DATOS DE DEMOSTRACIÓN</div>
+  <div id="welcome" class="welcome">
+    <div class="welcome-art"><div class="sun"></div><div class="field field-a"></div><div class="field field-b"></div><div class="brand-mark">AN</div></div>
+    <div class="welcome-panel">
+      <div class="eyebrow">PLATAFORMA AGROPECUARIA</div>
+      <h1>Tu finca, clara.<br><span>Cada decisión, a tiempo.</span></h1>
+      <p>Producción, inventario, finanzas y alertas en un solo lugar, con un agente que entiende tu operación.</p>
+      <div class="farm-choice">
+        <button class="farm-card" data-enter="libertad"><span class="farm-icon">🐄</span><span><b>Finca La Libertad</b><small>Soledad Sánchez · Ganadería y piscicultura</small></span><i>→</i></button>
+        <button class="farm-card" data-enter="villayolsa"><span class="farm-icon rice">🌾</span><span><b>VillaYolsa</b><small>Yoleyda Sánchez · Producción de arroz</small></span><i>→</i></button>
+      </div>
+      <div class="welcome-note">Acceso de prueba · No contiene datos reales</div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="logo"><div class="logo-mark">AN</div><div><b>AgroNexo</b><small>Gestión inteligente</small></div></div>
+      <div class="org-select-wrap"><label>ESPACIO ACTUAL</label><button id="orgButton" class="org-button"><span id="orgEmoji">🐄</span><span><b id="orgName">Finca La Libertad</b><small id="orgOwner">Soledad Sánchez</small></span><i>⌄</i></button><div id="orgMenu" class="org-menu hidden"><button data-org="libertad">🐄 <span><b>Finca La Libertad</b><small>Ganadería y piscicultura</small></span></button><button data-org="villayolsa">🌾 <span><b>VillaYolsa</b><small>Producción de arroz</small></span></button></div></div>
+      <nav id="nav">
+        <button class="active" data-view="dashboard"><span>⌂</span>Resumen</button>
+        <div class="nav-label">OPERACIÓN</div>
+        <button data-view="production"><span>◉</span><em id="productionLabel">Ganadería</em></button>
+        <button data-view="secondary"><span>≈</span><em id="secondaryLabel">Piscicultura</em></button>
+        <button data-view="inventory"><span>▦</span>Inventario <b class="nav-badge">2</b></button>
+        <button data-view="calendar"><span>□</span>Agenda</button>
+        <div class="nav-label">GESTIÓN</div>
+        <button data-view="finance"><span>$</span>Finanzas</button>
+        <button data-view="alerts"><span>!</span>Alertas <b class="nav-badge alert">3</b></button>
+        <button data-view="team"><span>♙</span>Equipo y roles</button>
+      </nav>
+      <div class="sidebar-foot"><button id="roleButton" class="profile"><span id="avatar">SS</span><span><b id="userName">Soledad Sánchez</b><small id="roleName">Propietaria</small></span><i>⋮</i></button><div id="roleMenu" class="role-menu hidden"></div></div>
+    </aside>
+
+    <main>
+      <header><button id="mobileMenu" class="icon-button mobile-only">☰</button><div><div class="breadcrumb"><span id="crumbOrg">Finca La Libertad</span> / <b id="crumbView">Resumen</b></div><h2 id="pageTitle">Buenos días, Soledad</h2></div><div class="header-actions"><span class="weather" id="weather">☀️ 29° · Montería</span><button class="icon-button" id="notificationButton">♧<b>3</b></button><button class="primary" id="quickAdd">＋ Nuevo registro</button></div></header>
+      <section id="content" class="content"></section>
+    </main>
+
+    <button id="agentFab" class="agent-fab"><span>✦</span><i></i></button>
+    <aside id="agent" class="agent-panel hidden">
+      <div class="agent-head"><div class="agent-avatar">✦</div><div><b>Agente AgroNexo</b><small><i></i> En línea · Consulta y registra</small></div><button id="closeAgent">×</button></div>
+      <div id="chat" class="chat"></div>
+      <div id="suggestions" class="suggestions"></div>
+      <form id="chatForm"><input id="chatInput" autocomplete="off" placeholder="Pregunta o registra una novedad…"><button>➤</button></form>
+      <div class="agent-foot">Agente demostrativo · Los cambios se guardan en esta sesión</div>
+    </aside>
+  </div>
+
+  <div id="modal" class="modal hidden"><div class="modal-card"><button class="modal-close" data-close>×</button><div id="modalContent"></div></div></div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
